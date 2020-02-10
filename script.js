@@ -30,8 +30,16 @@ function arrayAPI(breed){
    
         fetch(breedLink)
         .then(response => response.json())
-        .then(responseJSON => getDogImage(responseJSON))
+        .then(responseJSON => {
+            if (responseJSON.status == 'error'){
+                alert('Not a valid dog breed');
+            }
+            else{
+                getDogImage(responseJSON);
+            }
+        })
         .catch(error => alert('error! danger!'));
+
 
 }
 
