@@ -12,28 +12,27 @@ async function getBreed(){
         event.preventDefault();
     $('.dogDisplay').empty();
         console.log("Display emptied");
-        dogBreed = $('input[name="breed"]:checked').val();
-        // = $('.puppyNumber').val();
+        dogBreed = $('input[name="breed"]').val();
+        dogBreed = dogBreed.toLowerCase();
         console.log("dogBreed is: " + dogBreed);
 
         arrayAPI(dogBreed);
     });
 }
 
-async function arrayAPI(breed){
+function arrayAPI(breed){
     console.log("arrayAPI ran");
 
     let breedLink = "https://dog.ceo/api/breed/hound/" + breed + "/images/random"; 
-    let pictureLink = "";
 
    console.log("breedLink: " + breedLink)
 
    
-        await fetch(breedLink)
+        fetch(breedLink)
         .then(response => response.json())
         .then(responseJSON => getDogImage(responseJSON))
         .catch(error => alert('error! danger!'));
-    
+
 }
 
 function getDogImage(dogMessage){
