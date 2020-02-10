@@ -21,41 +21,33 @@ async function getBreed(){
 }
 
 async function arrayAPI(breed){
-   // console.log("arrayAPI ran");
+    console.log("arrayAPI ran");
 
-   // let breedLink = 
+    let breedLink = "https://dog.ceo/api/breed/hound/" + breed + "/images/random"; 
+    let pictureLink = "";
 
-   //console.log(breedLink)
+   console.log("breedLink: " + breedLink)
 
-   // for (i=0; i<dogNumber; i++){
-   //     await fetch('https://dog.ceo/api/breeds/image/random')
-   //     .then(response => response.json())
-   //     .then(responseJSON => dogPool.push(responseJSON))
-   //     .catch(error => alert('error! danger!'));
-   // }
-
-  //  console.log(dogPool);
-  //  console.log("length of dogpool: " + dogPool.length);
-
-  //  $('.dogDisplay').append(
-  //      "<div class='dogTable'></div>"
-  //  );
-
-   //         dogImage = getDogImage(dogPool[i].message);
-   //         console.log("dog image: " + dogImage);
-
-   //         $(rowName).append(
-   //             dogImage
-    //        );
-        
-
-    readyFunctions();
+   
+        await fetch(breedLink)
+        .then(response => response.json())
+        .then(responseJSON => getDogImage(responseJSON))
+        .catch(error => alert('error! danger!'));
+    
 }
 
 function getDogImage(dogMessage){
-    let newDogMessage = "<img src='" + dogMessage + "' class='dogPic'>";
+
+    console.log("message: " + dogMessage.message);
+
+    let newDogMessage = "<img src='" + dogMessage.message + "' class='dogPic'>";
     console.log("dog message: " + newDogMessage);
-    return newDogMessage;
+
+    $('.dogDisplay').append(
+        newDogMessage
+      );
+
+    readyFunctions();
 }
 
 $(readyFunctions);

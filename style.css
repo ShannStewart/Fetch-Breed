@@ -1,0 +1,13 @@
+.dogDisplay{
+    margin: 40px;
+    padding: 40px;
+}
+
+.dogPic{
+    height: 400px;
+    width: auto;
+}
+
+.dogPic:hover{
+    transform: scale(1.2);
+}
