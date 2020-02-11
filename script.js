@@ -23,7 +23,7 @@ async function getBreed(){
 function arrayAPI(breed){
     console.log("arrayAPI ran");
 
-    let breedLink = "https://dog.ceo/api/breed/hound/" + breed + "/images/random"; 
+    let breedLink = "https://dog.ceo/api/breed/" + breed + "/images/random"; 
 
    console.log("breedLink: " + breedLink)
 
